@@ -19,16 +19,15 @@
 }
 
 :root {
-    --bg1: #1D1E18;
-    --bg2: #4E5655;
-    --bg3: #A4AAAA;
+    --bg1: #394648;
+    --bg2: #3A7CA5;
+    --bg3: #f0fdff;
     --element1: #3E2F5B;
-    --element2: #3A7CA5;
+    --element2: #007CC4;
     --fore: #F37748;
     --lines: #D8E4FF;
+    --font-col: whitesmoke;
 }
-
-
 
 html {
     width: 100%;
@@ -52,47 +51,109 @@ h4, h5, h6 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--fore);
+    padding: 0;
+    margin: 0;
 }
 
 body {
     display: grid;
-    grid-template-areas:
-            "lnav ctrl"
-            "lnav nav"
-            "lnav cont"
-            "foot foot";
-    grid-template-rows: [controls]10vh [navs]5vh [content]78vh [footer]7vh;
-    grid-template-columns:[leftnav]20vw [everything]80vw;
+    grid-template-areas: "lnav ctrl" "lnav nav" "lnav cont" "foot foot";
+    grid-template-rows: [controls] 9vh [navs] 6vh [content] 78vh [footer] 7vh;
+    grid-template-columns: [leftnav] 15vw [everything] 85vw;
 }
 
-.lnav{
+/*----------------------Lnav Holder Starts--------------------*/
+.lnav {
     grid-area: lnav;
     background-color: var(--bg1);
 }
 
-.logo{
+.logo {
     width: 100%;
-    text-align: center;
-    padding-top: 2vh;
+    text-align: left;
+    padding: 2vh 0 0 2vh;
 }
-.logo img{
-    width: 15vw;
+
+.logo img {
+    width: 12vw;
 }
-.ctrl{
+
+/*----------------------LNav Holder Ends--------------------*/
+
+/*----------------------Control Holder Starts--------------------*/
+.ctrl {
     grid-area: ctrl;
     background-color: var(--bg2);
 }
-.nav{
+
+/*----------------------Controls Holder Ends--------------------*/
+
+/*----------------------Nav Holder Starts--------------------*/
+.nav {
     grid-area: nav;
     background-color: var(--bg3);
-    border-bottom: var(--white) 1px solid;
+    border-bottom: var(--white) 3px solid;
 }
-.cont{
+
+/*----------------------Nav Holder Ends--------------------*/
+
+/*----------------------Content Box Holder Starts--------------------*/
+.cont {
     grid-area: cont;
     background-color: var(--bg3);
+    display: grid;
+    grid-template-rows: 25vh 50vh;
 }
-.foot{
+
+.stat-container {
+    grid-row: 1;
+}
+
+.box-container {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,20vw);
+    grid-gap: 1vw;
+    padding-left: 1vw;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    box-shadow: 3px 3px 20px lightslategray;
+}
+
+.box:hover {
+    box-shadow: 3px 3px 60px lightslategray;
+}
+
+#plus {
+    width: 20vw;
+    height: 15vh;
+    background-color: var(--bg3);
+    border: var(--element1) 20px dashed;
+    color: var(--element1);
+    font-size: 8vh;
+}
+.ext {
+    width: 20vw;
+    height: 15vh;
+    background-color: var(--fore);
+    color: var(--font-col);
+    padding: 2vh;
+    display: grid;
+    grid-template-rows: 30% 40% 30%;
+}
+
+/*----------------------Content Box Holder Ends--------------------*/
+/*----------------------Footer Holder Starts--------------------*/
+.foot {
     grid-area: foot;
     background-color: var(--bg1);
 }
+
+/*----------------------Footer Holder Ends--------------------*/
+
