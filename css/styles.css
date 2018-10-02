@@ -108,12 +108,22 @@ body {
 
 .stat-container {
     grid-row: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25vw);
+    grid-gap: 3.5vw;
+    padding: 2vh;
+}
+
+.stat {
+    text-align: center;
+    display: grid;
+    grid-template-rows: 30% 20% 20% 30% ;
 }
 
 .box-container {
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fill,25vh);
+    grid-template-columns: repeat(auto-fill, 25vh);
     grid-gap: 1vw;
     padding-left: 1vw;
     /*overflow: scroll;*/
@@ -124,6 +134,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .box {
     box-shadow: 3px 3px 20px lightslategray;
 }
@@ -140,6 +151,7 @@ body {
     color: var(--element1);
     font-size: 8vh;
 }
+
 .ext {
     width: 25vh;
     height: 25vh;
