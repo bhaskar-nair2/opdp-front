@@ -112,9 +112,10 @@ body {
 .box-container {
     grid-row: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fill,20vw);
+    grid-template-columns: repeat(auto-fill,25vh);
     grid-gap: 1vw;
     padding-left: 1vw;
+    /*overflow: scroll;*/
 }
 
 .center {
@@ -131,21 +132,21 @@ body {
 }
 
 #plus {
-    width: 20vw;
-    height: 15vh;
+    width: 25vh;
+    height: 25vh;
     background-color: var(--bg3);
     border: var(--element1) 20px dashed;
     color: var(--element1);
     font-size: 8vh;
 }
 .ext {
-    width: 20vw;
-    height: 15vh;
+    width: 25vh;
+    height: 25vh;
     background-color: var(--fore);
     color: var(--font-col);
     padding: 2vh;
     display: grid;
-    grid-template-rows: 30% 40% 30%;
+    grid-template-rows: 20% 30% 30%;
 }
 
 /*----------------------Content Box Holder Ends--------------------*/
