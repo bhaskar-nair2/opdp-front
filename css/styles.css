@@ -56,6 +56,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+
+
 body {
     display: grid;
     grid-template-areas: "lnav ctrl" "lnav nav" "lnav cont" "foot foot";
@@ -67,6 +69,8 @@ body {
 .lnav {
     grid-area: lnav;
     background-color: var(--bg1);
+    display: grid;
+    grid-template-rows: 9vh 16vh 40vh;
 }
 
 .logo {
@@ -78,6 +82,25 @@ body {
 .logo img {
     width: 12vw;
 }
+
+.lnav_links {
+    grid-row: 3;
+}
+
+.lnav_links ul{
+    list-style: none;
+}
+
+.lnav_links ul li {
+    color: white;
+    font-family: Ubuntu;
+    padding-top: 5vh;
+}
+
+.lnav_links ul li h2:active {
+    color: var(--fore)
+}
+
 
 /*----------------------LNav Holder Ends--------------------*/
 
@@ -117,7 +140,7 @@ body {
 .stat {
     text-align: center;
     display: grid;
-    grid-template-rows: 30% 20% 20% 30% ;
+    grid-template-rows: 30% 20% 20% 30%;
 }
 
 .box-container {

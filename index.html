@@ -10,9 +10,62 @@
 </head>
 <body>
 
+<div id="newBox" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">New Box</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="boxName">Box Name</label>
+                        <input required class="form-control" id="boxName" placeholder="Box Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="boxStack">Stack Used</label>
+                        <select required id="boxStack" class="custom-select">
+                            <option selected>Select Your Stack</option>
+                            <option value="1">NodeJS</option>
+                            <option value="2">Flask</option>
+                            <option value="3">Django</option>
+                            <option value="4">Static</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gitUrl">Git URL</label>
+                        <input required type="url" class="form-control" id="gitUrl" aria-describedby="urlHelp"
+                               placeholder="Github Repository URL">
+                        <small id="urlHelp" class="form-text text-muted">Please give us the HTTPs address used to clone
+                            your repository
+                        </small>
+                    </div>
+                    <button type="button" class="btn btn-primary"><span
+                            style="font-weight: bolder">Deploy</span>
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="lnav">
     <div class="logo">
         <img src="img/logo_name_horz-light.png">
+    </div>
+    <div class="lnav_links">
+        <ul>
+            <li class="active"><h2>Dashboard</h2></li>
+            <li><h2>Profile</h2></li>
+            <li><h2>Payments</h2></li>
+            <li><h2>Settings</h2></li>
+        </ul>
     </div>
 </div>
 
@@ -26,7 +79,7 @@
         <div id="box_count" class="stat" style="border: 1px solid var(--green);">
             &nbsp;
             <h4>Boxes Owned:</h4>
-            <h2>6</h2>
+            <h2></h2>
         </div>
         <div id="some_count" class="stat" style="border: 1px solid var(--blue);">
             &nbsp;
@@ -36,12 +89,12 @@
         <div id="cred_count" class="stat" style="border: 1px solid var(--red);">
             &nbsp;
             <h4>Credits:</h4>
-            <h2>$1270</h2>
+            <h2>$1024</h2>
         </div>
     </div>
 
     <div class="box-container">
-        <button id="plus" class="center">
+        <button id="plus" class="center" onclick="openModal()">
             <h4>+Box</h4>
         </button>
 
