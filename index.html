@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/font-awesome/css/all.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+<!--TODO: Enable Font Awesome!!-->
 
 <div id="newBox" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -19,15 +22,19 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <div class="modal-cover">
+                <div class="loader">Loading...</div>
+                <i class="fa fa-5x fa-check-circle okmark"></i>
+            </div>
             <div class="modal-body">
-                <form>
+                <form id="newBoxForm">
                     <div class="form-group">
                         <label for="boxName">Box Name</label>
-                        <input required class="form-control" id="boxName" placeholder="Box Name">
+                        <input required class="form-control" id="boxName" name="boxName" placeholder="Box Name">
                     </div>
                     <div class="form-group">
                         <label for="boxStack">Stack Used</label>
-                        <select required id="boxStack" class="custom-select">
+                        <select required id="boxStack" name="boxStack" class="custom-select">
                             <option selected>Select Your Stack</option>
                             <option value="1">NodeJS</option>
                             <option value="2">Flask</option>
@@ -37,13 +44,13 @@
                     </div>
                     <div class="form-group">
                         <label for="gitUrl">Git URL</label>
-                        <input required type="url" class="form-control" id="gitUrl" aria-describedby="urlHelp"
+                        <input class="form-control" id="gitUrl" name="gitUrl" aria-describedby="urlHelp"
                                placeholder="Github Repository URL">
                         <small id="urlHelp" class="form-text text-muted">Please give us the HTTPs address used to clone
                             your repository
                         </small>
                     </div>
-                    <button type="button" class="btn btn-primary"><span
+                    <button id="newBoxBut" type="submit" class="btn btn-primary"><span
                             style="font-weight: bolder">Deploy</span>
                     </button>
                 </form>
@@ -55,23 +62,29 @@
     </div>
 </div>
 
-<div class="lnav">
-    <div class="logo">
+<nav class="navbar lnav navbar-collapse ">
+    <div class="navbar-brand logo">
         <img src="img/logo_name_horz-light.png">
     </div>
-    <div class="lnav_links">
+    <div class="lnav_links navbar-nav">
         <ul>
-            <li class="active"><h2>Dashboard</h2></li>
+            <li class="nav-item active"><h2>Dashboard</h2></li>
             <li><h2>Profile</h2></li>
             <li><h2>Payments</h2></li>
             <li><h2>Settings</h2></li>
         </ul>
     </div>
+</nav>
+
+<div class="ctrl">
+
 </div>
 
-<div class="ctrl"></div>
-
-<div class="nav"></div>
+<div class="nav">
+    <div class="nav-expl">
+        <a href="#" onclick="gethome()">Home</a>
+    </div>
+</div>
 
 <div class="cont">
 
@@ -101,20 +114,23 @@
         <div class="ext box">
             <h4>URL: 192.168.1.0</h4>
             <h3>Name: Testing</h3>
-            <h6>Status: <span class="status" style="color: greenyellow">Running</span></h6>
+            <h5>Status: <span class="status" style="color: greenyellow">Running</span> <span class="blink">&blacktriangleright;</span>
+            </h5>
             <h6>Resource Use: <span class="useage" style="color: darkred">80%</span></h6>
             <h6>Stack: Static</h6>
         </div>
-
     </div>
 
 </div>
 
-<div class="foot"></div>
+<div class="foot center">
+    Made with&nbsp;<i class="fa fa-heart blink"></i>&nbsp;in India.
+</div>
 
 
-<script src="./js/jquery-3.3.1.js"></script>
-<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/font-awesome/js/all.js"></script>
 <script src="js/scripts.js"></script>
 </body>
 </html>
