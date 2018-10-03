@@ -6,9 +6,8 @@
 
 
 function gethome() {
-    $('.details').css({
-        display: 'none'
-    })
+    $('.nav-expl a').empty().append('Home');
+    $('.details').remove();
     $('.stat-container').fadeIn(400);
     $('.box-container').fadeIn(400, function () {
         $.getJSON('http://api.gameservers.ooo/container', function (full) {
@@ -43,7 +42,7 @@ $(document.body).on('click', '.ext', function (event) {
     $('.box-container').fadeOut(400);
     $('.foot').fadeOut(400, function () {
         $('.nav-expl a').append(
-            "<span>/"+data+"</span>"
+            "<span>/" + data + "</span>"
         );
         $('.cont').append("" +
             " <div class=\"details\">\n" +
@@ -55,9 +54,6 @@ $(document.body).on('click', '.ext', function (event) {
             "            <button type=\"button\" class=\"btn-danger\" onclick=\"stopCT()\">Stop</button>\n" +
             "            <button type=\"button\" class=\"btn-alert\" onclick=\"reStart()\">Restart</button>\n" +
             "        </div>");
-        $('.details').css({
-            display: 'grid'
-        })
     });
 });
 
@@ -72,10 +68,14 @@ $('#newBoxForm').submit(function (evt) {
     $('.modal-cover').css({
         display: 'flex'
     });
-    let data = $("#newBoxForm").serialize();
-    $.post('http://api.gameservers.ooo/container', data, function (data) {
-        if (data === '200')
-            console.log('Success');
+    let data =
+        {
+            "name": $('#boxName').val(),
+            "stack": $('#boxStack').val(),
+            "git": $('#gitUrl').val()
+        };
+    console.log(data);
+    $.post('http://api.gameservers.ooo/container', data, function (res) {
 
     }).always(function () {
         $('.loader').fadeOut(400);

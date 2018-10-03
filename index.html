@@ -30,21 +30,20 @@
                 <form id="newBoxForm">
                     <div class="form-group">
                         <label for="boxName">Box Name</label>
-                        <input required class="form-control" id="boxName" name="boxName" placeholder="Box Name">
+                        <input required class="form-control" id="boxName" name="name" placeholder="Box Name">
                     </div>
                     <div class="form-group">
                         <label for="boxStack">Stack Used</label>
-                        <select required id="boxStack" name="boxStack" class="custom-select">
+                        <select required id="boxStack" name="stack" class="custom-select">
                             <option selected>Select Your Stack</option>
-                            <option value="1">NodeJS</option>
-                            <option value="2">Flask</option>
-                            <option value="3">Django</option>
-                            <option value="4">Static</option>
+                            <option value="node">NodeJS</option>
+                            <option value="flask">Flask</option>
+                            <option value="static">Static</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="gitUrl">Git URL</label>
-                        <input class="form-control" id="gitUrl" name="gitUrl" aria-describedby="urlHelp"
+                        <input class="form-control" id="gitUrl" name="git" aria-describedby="urlHelp"
                                placeholder="Github Repository URL">
                         <small id="urlHelp" class="form-text text-muted">Please give us the HTTPs address used to clone
                             your repository
@@ -119,9 +118,6 @@
             <h6>Resource Use: <span class="useage" style="color: darkred">80%</span></h6>
             <h6>Stack: Static</h6>
         </div>
-
-
-
 
     </div>
 

@@ -321,7 +321,6 @@ body {
 }
 
 .details{
-    display: none;
     padding: 2vh;
     overflow: hidden;
     word-wrap: break-word;
