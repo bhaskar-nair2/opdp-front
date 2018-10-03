@@ -309,6 +309,8 @@ body {
     color: var(--font-col);
     padding: 2vh;
     display: grid;
+    overflow: hidden;
+    word-wrap: break-word;
     grid-template-rows: 20% 30% 20% 10% 10%;
 }
 

@@ -8,26 +8,32 @@
 function gethome() {
     $('.stat-container').fadeIn(400);
     $('.box-container').fadeIn(400, function () {
-        $.getJSON('http://api.gameservers.ooo/', function (data) {
+        $.getJSON('http://api.gameservers.ooo/container', function (full) {
             $('.ext').detach();
-            for (let i = 0; i < data.length; i++) {
-                $('.box-container').append(
-                    "<div class=\"ext box\">\n" +
-                    "            <h4>URL: " + data[i].url + "</h4>\n" +
-                    "            <h3>Name:" + data[i].name + "</h3>\n" +
-                    "            <h5>Status: <span class=\"status\" style=\"color: " + run_maker(parseInt(data[i].status), 0) + "\">" + run_maker(parseInt(data[i].status), 1) + "</span></h5>\n" +
-                    "            <h6>Resource Use: <span class=\"useage\" style=\"color:" + use_col_make(parseInt(data[i].resource)) + "\">" + data[i].resource + "%</span></h6>\n" +
-                    "            <h6>Stack: " + data[i].image + "</h6>\n" +
-                    "       </div>"
-                );
+            let data = full.containers;
+            try {
+                $('#box_count h2').empty().append(data.length);
+                for (let i = 0; i < data.length; i++) {
+                    $('.box-container').append(
+                        "<div class=\"ext box\">\n" +
+                        "      <h3>URL:<a href='http://" + data[i].name + ".gameservers.ooo/'>" + data[i].name + "</a></h3> \n" +
+                        "            <h3>Name:" + data[i].name + "</h3>\n" +
+                        "            <h5>Status: <span class=\"status\" style=\"color: " + run_maker(parseInt(data[i].status), 0) + "\">" + run_maker(parseInt(data[i].status), 1) + "</span></h5>\n" +
+                        // "            <h6>Resource Use: <span class=\"useage\" style=\"color:" + use_col_make(parseInt(data[i].resource)) + "\">" + data[i].resource + "%</span></h6>\n" +
+                        "            <h6>Stack: " + data[i].image + "</h6>\n" +
+                        "       </div>"
+                    );
+                }
+
+            } catch (e) {
+                $('#box_count h2').empty().append('0');
             }
-            $('#box_count h2').empty().append(data.length);
         });
     });
     $('.foot').fadeIn(400);
 }
 
-$(document.body).on('click', '.ext' ,function (event) {
+$(document.body).on('click', '.ext', function (event) {
     let id = $(this).text();
     console.log(id);
     $('.stat-container').fadeOut(400);
@@ -47,7 +53,7 @@ $('#newBoxForm').submit(function (evt) {
         display: 'flex'
     });
     let data = $("#newBoxForm").serialize();
-    $.post('http://127.0.0.1:5000/opdp/test', data, function (data) {
+    $.post('http://api.gameservers.ooo/container', data, function (data) {
         if (data === '200')
             console.log('Success');
 
