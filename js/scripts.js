@@ -6,6 +6,9 @@
 
 
 function gethome() {
+    $('.details').css({
+        display: 'none'
+    })
     $('.stat-container').fadeIn(400);
     $('.box-container').fadeIn(400, function () {
         $.getJSON('http://api.gameservers.ooo/container', function (full) {
@@ -16,9 +19,9 @@ function gethome() {
                 for (let i = 0; i < data.length; i++) {
                     $('.box-container').append(
                         "<div class=\"ext box\">\n" +
-                        "      <h3>URL:<a href='http://" + data[i].name + ".gameservers.ooo/'>" + data[i].name + "</a></h3> \n" +
-                        "            <h3>Name:" + data[i].name + "</h3>\n" +
-                        "            <h5>Status: <span class=\"status\" style=\"color: " + run_maker(parseInt(data[i].status), 0) + "\">" + run_maker(parseInt(data[i].status), 1) + "</span></h5>\n" +
+                        "      <h5>ID: " + data[i].id + "</h5> \n" +
+                        "            <h4>URL: <a target='_blank' href='http://" + data[i].name + ".gameservers.ooo/'>" + data[i].name + "</a></h4>\n" +
+                        "            <h6>Status: <span class=\"status\" style=\"color: " + run_maker(parseInt(data[i].status), 0) + "\">" + run_maker(parseInt(data[i].status), 1) + "</span></h6>\n" +
                         // "            <h6>Resource Use: <span class=\"useage\" style=\"color:" + use_col_make(parseInt(data[i].resource)) + "\">" + data[i].resource + "%</span></h6>\n" +
                         "            <h6>Stack: " + data[i].image + "</h6>\n" +
                         "       </div>"
@@ -34,11 +37,28 @@ function gethome() {
 }
 
 $(document.body).on('click', '.ext', function (event) {
-    let id = $(this).text();
-    console.log(id);
+    let data = $(this).text();
+    console.log(data);
     $('.stat-container').fadeOut(400);
     $('.box-container').fadeOut(400);
-    $('.foot').fadeOut(400);
+    $('.foot').fadeOut(400, function () {
+        $('.nav-expl a').append(
+            "<span>/"+data+"</span>"
+        );
+        $('.cont').append("" +
+            " <div class=\"details\">\n" +
+            "            <h4>ID: 192.168.1.0</h4>\n" +
+            "            <h2>URL: Testing</h2>\n" +
+            "            <h3>Name: name    </h3>\n" +
+            "            <h6>Status: Static</h6>\n" +
+            "            <h6>Stack: Flask</h6>\n" +
+            "            <button type=\"button\" class=\"btn-danger\" onclick=\"stopCT()\">Stop</button>\n" +
+            "            <button type=\"button\" class=\"btn-alert\" onclick=\"reStart()\">Restart</button>\n" +
+            "        </div>");
+        $('.details').css({
+            display: 'grid'
+        })
+    });
 });
 
 
@@ -67,13 +87,13 @@ $('#newBoxForm').submit(function (evt) {
     });
 });
 
-
-function use_col_make(x) {
-    if (x > 79 || x === 0)
-        return 'darkred';
-    else
-        return 'greenyellow';
-}
+//
+// function use_col_make(x) {
+//     if (x > 79 || x === 0)
+//         return 'darkred';
+//     else
+//         return 'greenyellow';
+// }
 
 function run_maker(x, y) {
     if (x === 0)

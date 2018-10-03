@@ -56,6 +56,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+a{
+    color: white;
+    text-decoration: underline white;
+}
+
 body {
     display: grid;
     grid-template-areas: "lnav ctrl" "lnav nav" "lnav cont" "lnav foot";
@@ -303,6 +308,7 @@ body {
 }
 
 .ext {
+    cursor: pointer;
     width: 25vh;
     height: 25vh;
     background-color: var(--fore);
@@ -312,6 +318,14 @@ body {
     overflow: hidden;
     word-wrap: break-word;
     grid-template-rows: 20% 30% 20% 10% 10%;
+}
+
+.details{
+    display: none;
+    padding: 2vh;
+    overflow: hidden;
+    word-wrap: break-word;
+    grid-template-rows: repeat(auto-fill,minmax(10%,30%));
 }
 
 /*----------------------Content Box Holder Ends--------------------*/
