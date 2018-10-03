@@ -68,15 +68,31 @@ $('#newBoxForm').submit(function (evt) {
     $('.modal-cover').css({
         display: 'flex'
     });
-    let data =
-        {
-            "name": $('#boxName').val(),
-            "stack": $('#boxStack').val(),
-            "git": $('#gitUrl').val()
-        };
-    console.log(data);
-    $.post('http://api.gameservers.ooo/container', data, function (res) {
-
+    // let dataW =
+    //     {
+    //         name: $('#boxName').val(),
+    //         stack: $('#boxStack').val(),
+    //         git: $('#gitUrl').val()
+    //     };
+    // $.post('http://api.gameservers.ooo/container', data, function (res) {
+    //
+    // })
+    $.ajax({
+        url: 'http://api.gameservers.ooo/container',
+        type: 'post',
+        data: {
+            name: $('#boxName').val(),
+            stack: $('#boxStack').val(),
+            git: $('#gitUrl').val()
+        },
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        dataType: 'json',
+        success: function (data) {
+            console.info(data);
+        }
     }).always(function () {
         $('.loader').fadeOut(400);
         $('.okmark').delay(450).fadeIn(400);
